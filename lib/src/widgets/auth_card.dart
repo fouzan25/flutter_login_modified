@@ -285,6 +285,7 @@ class AuthCardState extends State<AuthCard> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final auth = Provider.of<Auth>(context, listen: false);
     final theme = Theme.of(context);
     final deviceSize = MediaQuery.of(context).size;
     Widget current = Container(
@@ -316,6 +317,7 @@ class AuthCardState extends State<AuthCard> with TickerProviderStateMixin {
                     passwordValidator: widget.passwordValidator,
                     onSwitchRecoveryPassword: () => _switchRecovery(true),
                     onSubmitCompleted: () {
+                      if (auth.isSignup) {}
                       _forwardChangeRouteAnimation().then((_) {
                         widget.onSubmitCompleted!();
                       });

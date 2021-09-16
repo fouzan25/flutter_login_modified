@@ -17,7 +17,8 @@ class LoginMessages with ChangeNotifier {
       this.flushbarTitleError = defaultflushbarTitleError,
       this.flushbarTitleSuccess = defaultflushbarTitleSuccess,
       this.signUpSuccess = defaultSignUpSuccess,
-      this.providersTitle = defaultProvidersTitle});
+      this.providersTitle = defaultProvidersTitle,
+      this.passwordSuggestion = defaultPasswordSuggestion});
 
   static const defaultUserHint = 'Email';
   static const defaultPasswordHint = 'Password';
@@ -28,7 +29,7 @@ class LoginMessages with ChangeNotifier {
   static const defaultRecoverPasswordButton = 'RECOVER';
   static const defaultRecoverPasswordIntro = 'Reset your password here';
   static const defaultRecoverPasswordDescription =
-      'We will send your plain-text password to this email account.';
+      'A validation code has been sent to this E-mail account.';
   static const defaultGoBackButton = 'BACK';
   static const defaultConfirmPasswordError = 'Password do not match!';
   static const defaultRecoverPasswordSuccess = 'An email has been sent';
@@ -36,6 +37,8 @@ class LoginMessages with ChangeNotifier {
   static const defaultflushbarTitleError = 'Error';
   static const defaultSignUpSuccess = 'An activation link has been sent';
   static const defaultProvidersTitle = 'or login with';
+  static const defaultPasswordSuggestion =
+      '**Use a combination of uppercase letters, lower case letters, numbers, and special characters (for example: !, @, &, %, +) and minimum length 8';
 
   /// Hint text of the userHint [TextField]
   /// By default is Email
@@ -87,4 +90,7 @@ class LoginMessages with ChangeNotifier {
 
   /// The string shown above the Providers buttons
   final String providersTitle;
+
+  ///The String shown for password suggeston
+  final String passwordSuggestion;
 }

@@ -290,27 +290,36 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
 
   Widget _buildConfirmPasswordField(
       double width, LoginMessages messages, Auth auth) {
-    return AnimatedPasswordTextFormField(
-      animatedWidth: width,
-      enabled: auth.isSignup,
-      loadingController: _loadingController,
-      inertiaController: _postSwitchAuthController,
-      inertiaDirection: TextFieldInertiaDirection.right,
-      labelText: messages.confirmPasswordHint,
-      controller: _confirmPassController,
-      textInputAction: TextInputAction.done,
-      focusNode: _confirmPasswordFocusNode,
-      onFieldSubmitted: (value) => _submit(),
-      validator: auth.isSignup
-          ? (value) {
-              if (value != _passController!.text) {
-                return messages.confirmPasswordError;
+    return Column(children: <Widget>[
+      AnimatedPasswordTextFormField(
+        animatedWidth: width,
+        enabled: auth.isSignup,
+        loadingController: _loadingController,
+        inertiaController: _postSwitchAuthController,
+        inertiaDirection: TextFieldInertiaDirection.right,
+        labelText: messages.confirmPasswordHint,
+        controller: _confirmPassController,
+        textInputAction: TextInputAction.done,
+        focusNode: _confirmPasswordFocusNode,
+        onFieldSubmitted: (value) => _submit(),
+        validator: auth.isSignup
+            ? (value) {
+                if (value != _passController!.text) {
+                  return messages.confirmPasswordError;
+                }
+                return null;
               }
-              return null;
-            }
-          : (value) => null,
-      onSaved: (value) => auth.confirmPassword = value!,
-    );
+            : (value) => null,
+        onSaved: (value) => auth.confirmPassword = value!,
+      ),
+      SizedBox(
+        height: 10,
+      ),
+      Text(
+        messages.passwordSuggestion,
+        style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.w100),
+      ),
+    ]);
   }
 
   Widget _buildForgotPassword(ThemeData theme, LoginMessages messages) {
