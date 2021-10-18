@@ -313,11 +313,11 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
         onSaved: (value) => auth.confirmPassword = value!,
       ),
       SizedBox(
-        height: 10,
+        height: 5,
       ),
       Text(
         messages.passwordSuggestion,
-        style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.w100),
+        style: TextStyle(color: Colors.white70, fontWeight: FontWeight.w100),
       ),
     ]);
   }
