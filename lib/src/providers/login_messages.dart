@@ -38,7 +38,7 @@ class LoginMessages with ChangeNotifier {
   static const defaultSignUpSuccess = 'An activation link has been sent';
   static const defaultProvidersTitle = 'or login with';
   static const defaultPasswordSuggestion =
-      '**Use a combination of uppercase letters, lower case letters, numbers, and special characters (for example: !, @, &, %, +) and minimum length 8';
+      '[a-z,A-Z][0-9][@!..][Length 8]';
 
   /// Hint text of the userHint [TextField]
   /// By default is Email
