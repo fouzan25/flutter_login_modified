@@ -317,7 +317,7 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
       ),
       Text(
         messages.passwordSuggestion,
-        style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.w100),
+        style: TextStyle(color: Colors.white70, fontWeight: FontWeight.w100),
       ),
     ]);
   }
